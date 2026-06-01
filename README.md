@@ -97,15 +97,6 @@ The system is split into two main parts:
 
 ---
 
-# 🧪 Possible Improvements
-
-- Add GPU acceleration (CUDA / DirectX)
-- Replace GDI with Direct2D / OpenGL rendering
-- Add video filters (grayscale, edge detection)
-- Add threading pipeline for decoding vs rendering
-- Add timestamp / FPS counter overlay
-
----
 
 # 👨‍💻 Author
 
