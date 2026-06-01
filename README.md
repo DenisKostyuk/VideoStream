@@ -61,27 +61,6 @@ The system is split into two main parts:
 
 ---
 
-# 📦 Project Structure
-
-VideoStream/
-│
-├── ConsoleApplication1 (C++ Engine)
-│ ├── VideoProcessor
-│ ├── VideoFileSource
-│ ├── WebcamSource
-│ ├── VideoSourceFactory
-│ └── Render API (Win32 GDI)
-│
-├── GUI (C# WinForms)
-│ ├── Form1.cs
-│ ├── P/Invoke bindings
-│ └── UI Controls
-│
-└── README.md
-
-
----
-
 # ▶️ How to Run
 
 ### 1. Build C++ project
