@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+x64/
+Debug/
+Release/
+
+# C++ / IntelliSense cache
+*.ipch
+
+# Database / cache files
+*.db
+*.VC.db
+
+# Logs / temp
+*.log
