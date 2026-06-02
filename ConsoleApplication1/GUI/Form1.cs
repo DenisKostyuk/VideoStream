@@ -21,6 +21,9 @@ namespace GUI
         [DllImport("ConsoleApplication1.dll")]
         public static extern void SetRenderWindow(IntPtr hwnd);
 
+        [DllImport("ConsoleApplication1.dll")]
+        public static extern void Setfilter(int type);
+
         private void OpenWebcam_Click(object sender, EventArgs e)
         {
             if (!runningFlag)
@@ -46,6 +49,24 @@ namespace GUI
             panel1.Refresh();
         }
 
-        
+        private void Filter_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show(Filters, 0, Filters.Height);
+        }
+
+        private void grayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (runningFlag) Setfilter(1);
+        }
+
+        private void genericToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (runningFlag) Setfilter(0);
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (runningFlag) Setfilter(2);
+        }
     }
 }

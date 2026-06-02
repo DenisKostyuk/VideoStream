@@ -131,6 +131,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileHandler.cpp" />
+    <ClCompile Include="FilterSourceFactory.cpp" />
+    <ClCompile Include="GaussianBlurFilter.cpp" />
+    <ClCompile Include="genericfilter.h" />
+    <ClCompile Include="GreyScaleFilter.cpp" />
     <ClCompile Include="VideoFileSource.cpp" />
     <ClCompile Include="VideoProcessor.cpp" />
     <ClCompile Include="VideoSrouceFactory.cpp" />
@@ -138,7 +142,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="filehandler.h" />
+    <ClInclude Include="filtersourcefactory.h" />
+    <ClInclude Include="filtertype.h" />
+    <ClInclude Include="gaussianblurfilter.h" />
+    <ClInclude Include="greyscalefilter.h" />
+    <ClInclude Include="ifilter.h" />
     <ClInclude Include="ivideosource.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="renderapi.h" />
     <ClInclude Include="sourcetype.h" />
     <ClInclude Include="videofilesource.h" />
