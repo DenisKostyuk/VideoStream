@@ -13,14 +13,17 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Filters">
+      <UniqueIdentifier>{d28da2c3-4aa4-40ce-adaf-89b10154ed71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{eee49cdf-5031-408b-8716-5447420d0a08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VideoSources">
+      <UniqueIdentifier>{16ccf256-dd99-49c0-bb3a-3bf671e18fce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="VideoFileSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WebcamSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="VideoProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,29 +33,26 @@
     <ClCompile Include="VideoSrouceFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GreyScaleFilter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="genericfilter.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="FilterSourceFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GaussianBlurFilter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="GreyScaleFilter.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="genericfilter.h">
+      <Filter>Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="WebcamSource.cpp">
+      <Filter>VideoSources</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoFileSource.cpp">
+      <Filter>VideoSources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ivideosource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="videofilesource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="webcamsource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="videoprocessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -68,23 +68,32 @@
     <ClInclude Include="renderapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ifilter.h">
+    <ClInclude Include="filtersourcefactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gaussianblurfilter.h">
+      <Filter>Filters</Filter>
+    </ClInclude>
     <ClInclude Include="greyscalefilter.h">
-      <Filter>Header Files</Filter>
+      <Filter>Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="ifilter.h">
+      <Filter>Filters</Filter>
     </ClInclude>
     <ClInclude Include="filtertype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="filtersourcefactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Logger.h">
-      <Filter>Header Files</Filter>
+      <Filter>Logger</Filter>
     </ClInclude>
-    <ClInclude Include="gaussianblurfilter.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ivideosource.h">
+      <Filter>VideoSources</Filter>
+    </ClInclude>
+    <ClInclude Include="videofilesource.h">
+      <Filter>VideoSources</Filter>
+    </ClInclude>
+    <ClInclude Include="webcamsource.h">
+      <Filter>VideoSources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

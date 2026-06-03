@@ -4,6 +4,6 @@
 cv::Mat GaussianBlurFilter::applyFilter(const cv::Mat& frame) {
 	cv::Mat output;
 
-	cv::GaussianBlur(frame, output, cv::Size(5, 5), 0);
+	cv::GaussianBlur(frame, output, cv::Size(15, 15), 0);
 	return output;
 }

@@ -10,6 +10,7 @@ private:
 	IFilter* currentFilter;
 	std::atomic<bool> stopFlag{ false };
 	std::mutex filterMutex;
+	
 
 public:
 	VideoProcessor(IVideoSource* source, IFilter* currFilter) : video(source), currentFilter(currFilter) {};

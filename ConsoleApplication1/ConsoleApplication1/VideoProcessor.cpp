@@ -8,6 +8,7 @@
 #include "greyscalefilter.h"
 #include "filtersourcefactory.h"
 #include "Logger.h"
+#include <thread>
 
 VideoProcessor::~VideoProcessor() { 
     delete video;
@@ -15,10 +16,13 @@ VideoProcessor::~VideoProcessor() {
 }
 
 static VideoProcessor* processor = nullptr;
-static Logger gLogger;
+
+static std::thread worker;
+
+
 
 void VideoProcessor::Run() {
-    gLogger.Log("[RUN] Run Function started...");
+    //gLogger.Log("[RUN] Run Function started...");
     video->Open();
 
     cv::Mat frame;
@@ -29,22 +33,22 @@ void VideoProcessor::Run() {
     while (!stopFlag) {
         if (video->GetFrame(frame)) {
             frameCount++;
-            gLogger.Log("[RUN] GetFrame called");
+            //gLogger.Log("[RUN] GetFrame called");
             cv::Mat processedFrame;
             {
                 std::lock_guard<std::mutex> lock(this->filterMutex);
-                gLogger.Log("[RUN] Applying filter");
+                //gLogger.Log("[RUN] Applying filter");
                 processedFrame = currentFilter->applyFilter(frame);
             }
             cv::Mat resized;
             cv::resize(processedFrame, resized, cv::Size(776, 345));
             cv::Mat safe = resized.clone();
-            gLogger.Log("[RUN] Draw Frame");
+            //gLogger.Log("[RUN] Draw Frame");
             auto now = std::chrono::steady_clock::now();
             auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastTime);
 
             if (elapsed.count() >= 1000) {
-                gLogger.Log("[FPS] " + std::to_string(frameCount));
+                //gLogger.Log("[FPS] " + std::to_string(frameCount));
                 fps = frameCount;
                 frameCount = 0;
                 lastTime = now;
@@ -67,7 +71,7 @@ void VideoProcessor::Stop() {
 * Function that sets a filter to a frame
 **/
 void VideoProcessor::SetFilter(FilterType type) {
-    gLogger.Log("[SETFILTER] Applied new filter ");
+    //gLogger.Log("[SETFILTER] Applied new filter ");
     IFilter* newFilter = FilterSourceFactory::create((FilterType)type);
     std::lock_guard<std::mutex> lock(this->filterMutex);
     delete this->currentFilter;
@@ -78,19 +82,21 @@ void VideoProcessor::SetFilter(FilterType type) {
 
 extern "C" __declspec(dllexport)
 void StartVideo(int type) {
-    gLogger.Log("[StartVideo] Video started. ");
+    //gLogger.Log("[StartVideo] Video started. ");
 	IVideoSource* source = VideoSourceFactory::create((SourceType)type);
     IFilter* filter = FilterSourceFactory::create((FilterType)FilterType::Generic);
 	processor = new VideoProcessor(source, filter);
-	processor->Run();
+    worker = std::thread(&VideoProcessor::Run, processor);
+	//processor->Run();
 }
 
 extern "C" __declspec(dllexport)
 void StopVideo() {
-    gLogger.Log("[StopVideo] Video stoped");
+    //gLogger.Log("[StopVideo] Video stoped");
     if (processor) {
         processor->Stop();
-        Sleep(30);
+        if (worker.joinable())
+            worker.join();
         delete processor;
         processor = nullptr;
     }
