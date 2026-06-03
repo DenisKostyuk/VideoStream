@@ -9,5 +9,6 @@ cv::Mat GreyScaleFilter::applyFilter(const cv::Mat& frame) {
 	cv::Mat output;
 	cv::cvtColor(gray, output, cv::COLOR_GRAY2BGR);
 
+
 	return output;
 }

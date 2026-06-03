@@ -22,9 +22,13 @@ void VideoProcessor::Run() {
     video->Open();
 
     cv::Mat frame;
-    
+    static int frameCount = 0;
+    static auto lastTime = std::chrono::steady_clock::now();
+    static int fps;
+
     while (!stopFlag) {
         if (video->GetFrame(frame)) {
+            frameCount++;
             gLogger.Log("[RUN] GetFrame called");
             cv::Mat processedFrame;
             {
@@ -36,6 +40,17 @@ void VideoProcessor::Run() {
             cv::resize(processedFrame, resized, cv::Size(776, 345));
             cv::Mat safe = resized.clone();
             gLogger.Log("[RUN] Draw Frame");
+            auto now = std::chrono::steady_clock::now();
+            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastTime);
+
+            if (elapsed.count() >= 1000) {
+                gLogger.Log("[FPS] " + std::to_string(frameCount));
+                fps = frameCount;
+                frameCount = 0;
+                lastTime = now;
+            }
+            std::string text = "FPS: " + std::to_string(fps);
+            cv::putText(safe, text, cv::Point(20, 40), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(0, 255, 0), 2);
             DrawFrameOnCSharpWindow(g_hwnd, safe.data, safe.cols, safe.rows);
         }
         else if(video->CanRestart()) video->Restart();
