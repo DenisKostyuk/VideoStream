@@ -4,12 +4,14 @@
 #include "ifilter.h"
 #include "filtertype.h"
 #include <mutex>
+#include "fpscounter.h"
 class VideoProcessor {
 private:
 	IVideoSource* video;
 	IFilter* currentFilter;
 	std::atomic<bool> stopFlag{ false };
 	std::mutex filterMutex;
+	FpsCounter fpsCounter;
 	
 
 public:

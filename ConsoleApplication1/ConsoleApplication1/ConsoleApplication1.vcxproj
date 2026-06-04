@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FilterSourceFactory.cpp" />
+    <ClCompile Include="FpsCounter.cpp" />
     <ClCompile Include="GaussianBlurFilter.cpp" />
     <ClCompile Include="genericfilter.h" />
     <ClCompile Include="GreyScaleFilter.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="filehandler.h" />
     <ClInclude Include="filtersourcefactory.h" />
     <ClInclude Include="filtertype.h" />
+    <ClInclude Include="fpscounter.h" />
     <ClInclude Include="gaussianblurfilter.h" />
     <ClInclude Include="greyscalefilter.h" />
     <ClInclude Include="ifilter.h" />

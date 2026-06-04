@@ -22,6 +22,9 @@
     <Filter Include="VideoSources">
       <UniqueIdentifier>{16ccf256-dd99-49c0-bb3a-3bf671e18fce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FPS">
+      <UniqueIdentifier>{1dbda975-6000-4258-8f50-2e3bee72380e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VideoProcessor.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="VideoFileSource.cpp">
       <Filter>VideoSources</Filter>
+    </ClCompile>
+    <ClCompile Include="FpsCounter.cpp">
+      <Filter>FPS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="webcamsource.h">
       <Filter>VideoSources</Filter>
+    </ClInclude>
+    <ClInclude Include="fpscounter.h">
+      <Filter>FPS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
