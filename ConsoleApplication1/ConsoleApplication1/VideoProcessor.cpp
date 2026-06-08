@@ -26,13 +26,9 @@ void VideoProcessor::Run() {
     video->Open();
 
     cv::Mat frame;
-    static int frameCount = 0;
-    static auto lastTime = std::chrono::steady_clock::now();
-    static int fps;
 
     while (!stopFlag) {
         if (video->GetFrame(frame)) {
-            frameCount++;
             cv::Mat processedFrame;
             {
                 std::lock_guard<std::mutex> lock(this->filterMutex);
@@ -43,7 +39,7 @@ void VideoProcessor::Run() {
             cv::Mat safe = resized.clone();
             
             this->fpsCounter.Tick();
-            std::string text = "FPS: " + std::to_string(processor->fpsCounter.get_fps());
+            std::string text = "FPS: " + std::to_string(this->fpsCounter.get_fps());
             cv::putText(safe, text, cv::Point(20, 40), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(0, 255, 0), 2);
             DrawFrameOnCSharpWindow(g_hwnd, safe.data, safe.cols, safe.rows);
         }

@@ -38,6 +38,7 @@
             genericToolStripMenuItem = new ToolStripMenuItem();
             grayToolStripMenuItem = new ToolStripMenuItem();
             gaussianBlurToolStripMenuItem = new ToolStripMenuItem();
+            cannyEdgeDetectionToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,30 +91,37 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { genericToolStripMenuItem, grayToolStripMenuItem, gaussianBlurToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { genericToolStripMenuItem, grayToolStripMenuItem, gaussianBlurToolStripMenuItem, cannyEdgeDetectionToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 92);
+            contextMenuStrip1.Size = new Size(192, 114);
             // 
             // genericToolStripMenuItem
             // 
             genericToolStripMenuItem.Name = "genericToolStripMenuItem";
-            genericToolStripMenuItem.Size = new Size(180, 22);
+            genericToolStripMenuItem.Size = new Size(191, 22);
             genericToolStripMenuItem.Text = "Generic";
             genericToolStripMenuItem.Click += genericToolStripMenuItem_Click;
             // 
             // grayToolStripMenuItem
             // 
             grayToolStripMenuItem.Name = "grayToolStripMenuItem";
-            grayToolStripMenuItem.Size = new Size(180, 22);
+            grayToolStripMenuItem.Size = new Size(191, 22);
             grayToolStripMenuItem.Text = "Gray";
             grayToolStripMenuItem.Click += grayToolStripMenuItem_Click;
             // 
             // gaussianBlurToolStripMenuItem
             // 
             gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
-            gaussianBlurToolStripMenuItem.Size = new Size(180, 22);
+            gaussianBlurToolStripMenuItem.Size = new Size(191, 22);
             gaussianBlurToolStripMenuItem.Text = "GaussianBlur";
             gaussianBlurToolStripMenuItem.Click += gaussianBlurToolStripMenuItem_Click;
+            // 
+            // cannyEdgeDetectionToolStripMenuItem
+            // 
+            cannyEdgeDetectionToolStripMenuItem.Name = "cannyEdgeDetectionToolStripMenuItem";
+            cannyEdgeDetectionToolStripMenuItem.Size = new Size(191, 22);
+            cannyEdgeDetectionToolStripMenuItem.Text = "Canny Edge Detection";
+            cannyEdgeDetectionToolStripMenuItem.Click += cannyEdgeDetectionToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -142,5 +150,6 @@
         private ToolStripMenuItem genericToolStripMenuItem;
         private ToolStripMenuItem grayToolStripMenuItem;
         private ToolStripMenuItem gaussianBlurToolStripMenuItem;
+        private ToolStripMenuItem cannyEdgeDetectionToolStripMenuItem;
     }
 }

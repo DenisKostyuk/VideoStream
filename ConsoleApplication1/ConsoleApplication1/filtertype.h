@@ -3,5 +3,6 @@
 enum class FilterType {
 	Generic,
 	Gray,
-	GaussianBlur
+	GaussianBlur,
+	CannyEdgeDetection
 };

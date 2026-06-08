@@ -57,6 +57,9 @@
     <ClCompile Include="FpsCounter.cpp">
       <Filter>FPS</Filter>
     </ClCompile>
+    <ClCompile Include="CannyEdgeDetection.cpp">
+      <Filter>Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="videoprocessor.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="fpscounter.h">
       <Filter>FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="cannyedge.h">
+      <Filter>Filters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

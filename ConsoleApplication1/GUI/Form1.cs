@@ -68,5 +68,10 @@ namespace GUI
         {
             if (runningFlag) Setfilter(2);
         }
+
+        private void cannyEdgeDetectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (runningFlag) Setfilter(3);
+        }
     }
 }

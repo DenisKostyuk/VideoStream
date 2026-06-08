@@ -11,6 +11,10 @@ IFilter* FilterSourceFactory::create(FilterType type) {
 
     case FilterType::GaussianBlur:
         return new GaussianBlurFilter();
+
+    case FilterType::CannyEdgeDetection:
+        return new CannyEdgeDetection();
+
     default:
         return nullptr;
 
